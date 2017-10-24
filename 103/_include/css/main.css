@@ -34,7 +34,7 @@ body{
 
 
 a{
-	color:#DE5E60;
+	color:#fff;
 	text-decoration: none;
 	cursor: pointer;
 	
@@ -504,6 +504,7 @@ header #logo {
 
 header #logo a {
 	background: url(../img/logoko.png) no-repeat;
+	background-color: #fff;
 	width: 96px;
 	height: 30px;
 	text-indent: -9999px;
