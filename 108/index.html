@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>试卷</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/shijuan.css">
+    <link rel="script" href="js/shijuan.js">
+    <script>
+        var score
+        function getvalue () {
+            var cla = document.getElementById('classes').value;
+            if (cla == '') {
+                alert("请填写班级");
+                id.focus()
+            }
+            var id = document.getElementById('IDs').value;
+            if (id == '') {
+                alert("请填写学号");
+                name.focus()
+            }
+            var name = document.getElementById('names').value;
+            if (name == '') {
+                alert("请填写姓名");
+                cla.focus()
+            }
+            else{
+                alert(cla+'班，学号为'+id+'的，'+name+'同学的成绩是：'+score)
+            }
+            //测试是否填写个人信息
+        }
+        function get () {
+            var t1 = document.getElementById('text1').value;
+            var t2 = document.getElementById('text11').value;
+            var t3 = document.getElementById('text12').value;
+            var t4 = document.getElementById('text13').value;
+            if(t1 == '统一建模语言') {
+                score += 5;
+            }
+            else{
+                score += 0;
+                // alert("错了")
+            }
+            if(t2 == '封装性') {
+                score += 5;
+            }
+            else{
+                score += 0;
+                // alert("错了")
+            }
+            if(t3 == '继承性') {
+                score += 5;
+            }
+            else{
+                score += 0;
+                // alert("错了")
+            }
+            if(t4 == '多态性') {
+                score += 5;
+            }
+            else{
+                score += 0;
+                // alert("错了")
+            }
+        }
+        //填空题测试
+        function two() {
+            var r1 = document.getElementsByName('options');
+            var selectvalue =null;
+            for (var i = 0; i < r1.length;i++) {
+                if (r1[i].checked == true) {
+                    selectvalue = r1[i].value;
+                    break;
+                }
+            }
+            alert(selectvalue)
+        }
+
+        function twos() {
+            var r2 = document.getElementsByName('optionss');
+            var selectvalue = null;
+            for (var i = 0; i < r2.length;i++) {
+                if (r2[i].checked == true) {
+                    selectvalue = r2[i].value;
+                    break;
+                }
+            }
+            alert(selectvalue)
+        }
+        //单选题测试
+        function check () {
+            var che = document.getElementsByName('check');
+            var ches = document.getElementsByName('checks');
+            var selectvalue1 = [];
+            var selectvalue2 = [];
+
+            for (var i = 0; i < che.length;i++) {
+                if (che[i].checked == true) {
+                    selectvalue1.push(che[i].value)
+                }
+            }
+            alert(selectvalue1)
+            for (var j = 0; j < che.length;j++) {
+                if (ches[j].checked == true) {
+                    selectvalue2.push(ches[j].value)
+                }
+            }
+            alert(selectvalue2)
+        }
+        //多选题测试
+        function one() {
+            var r1 = document.getElementsByName('radior');
+            var s =null;
+            for (var i = 0; i < r1.length;i++) {
+                if (r1[i].checked == true) {
+                    s = r1[i].value;
+                    break;
+                }
+            }
+            alert(s)
+        }
+
+        function ones() {
+            var r2 = document.getElementsByName('radiorr');
+            var ss = null;
+            for (var i = 0; i < r2.length;i++) {
+                if (r2[i].checked == true) {
+                    ss = r2[i].value;
+                    break;
+                }
+            }
+            alert(ss)
+        }
+        //判断题测试
+    </script>
+</head>
+<body>
+  <div class="container-fluid">
+      <h1 class="text-center">统一建模语言理论测试</h1>
+      <div class="row">
+          <div class="col-md-4 col-xs-12">
+              <p><label>考试科目</label>：统一建模语言</p>
+          </div>
+          <div class="col-md-4 col-xs-12">
+              <p><label>时间</label>：100分钟</p>
+          </div>
+          <div class="col-md-4 col-xs-12">
+              <p><label>得分</label>：100</p>
+          </div>
+      </div>
+      <div class="form-inline row">
+          <div class="form-group col-md-4 col-xs-12">
+              <label>班级</label>
+              <input type="text" id="classes" class="form-control">
+          </div>
+          <div class="form-group col-md-4 col-xs-12">
+              <label>学号</label>
+              <input type="text" id="IDs" class="form-control">
+          </div>
+          <div class="form-group col-md-4 col-xs-12">
+              <label>姓名</label>
+              <input type="text" id="names" class="form-control">
+          </div>
+      </div>
+      <h3>一、填空题（每空5分，共20分）</h3>
+      <form class="form-inline">
+          <div class="form-group">
+              <label>1、UML的中文全称是：</label>
+              <input type="text" class="form-control" id="text1" onblur="get()" placeholder="统一建模语言">
+          </div>
+      </form>
+      <form class="form-inline">
+          <div class="form-group">
+              <label>2、对象的突出特征是：</label>
+              <input type="text" class="form-control" id="text11" onblur="get()" placeholder="封装性">
+              <input type="text" class="form-control" id="text12" onblur="get()" placeholder="继承性">
+              <input type="text" class="form-control" id="text13" onblur="get()" placeholder="多态性">
+          </div>
+      </form>
+      <h3>二、选择题（每题10分，共20分）</h3>
+      <h4>1、UML与软件工程的关系是：</h4>
+      <div class="radio">
+          <label>
+              <input type="radio" name="options" onclick="two()" value="option1">（A）UML就是软件工程
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="options" onclick="two()" value="option2">（B）UML参与到软件工程中软件开发过程的几个阶段
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="options" onclick="two()" value="option3">（C）UML与软件工程无关
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="options" onclick="two()" value="option4">（D）UML是软件工程的一部分
+          </label>
+      </div>
+      <h4>2、Java语言支持：</h4>
+      <div class="radio">
+          <label>
+              <input type="radio" name="optionss" onclick="twos()" value="option1">（A）单继承
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="optionss" onclick="twos()" value="option2">（B）多继承
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="optionss" onclick="twos()" value="option3">（C）单继承和多继承都支持
+          </label>
+      </div>
+      <div class="radio">
+          <label>
+              <input type="radio" name="optionss" onclick="twos()" value="option4">（D）单继承和多继承都不支持
+          </label>
+      </div>
+      <h3>三、多选题（每题10分，共20分）</h3>
+      <h4>1、用例的粒度分为一下哪几种：</h4>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="check" onclick="check()" value="a"> （A）概述级
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="check" onclick="check()" value="b"> （B）需求级
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="check" onclick="check()" value="c"> （C）用户目标级
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="check" onclick="check()" value="d"> （D）子功能级
+          </label>
+      </div>
+      <h4>2、类图有以下哪三种部分组成：</h4>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="checks" onclick="check()" value="a"> （A）名称（Name）
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="checks" onclick="check()" value="b"> （B）属性（Attribute）
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="checks" onclick="check()" value="c"> （C）操作（Operation）
+          </label>
+      </div>
+      <div class="checkbox">
+          <label>
+              <input type="checkbox" name="checks" onclick="check()" value="d"> （D）方法（function）
+          </label>
+      </div>
+      <h3>四、判断题（每题10分，共20分）</h3>
+      <ul class="list-inline">
+         <li>
+             1、用例图只是用于客户交流和沟通的，用于确定需求。
+             <label>
+                 <input type="radio" name="radior" onclick="one()" value="true">
+                 <span>√</span>
+             </label>
+             <label>
+                 <input type="radio" name="radior" onclick="one()" value="false" >
+                 <span>×</span>
+             </label>
+         </li>
+          <br>
+          <li>
+              2、在状态图中终止状态在一个状态图中允许有任意多个。
+              <label>
+                  <input type="radio" name="radiorr" onclick="ones()" value="true" >
+                  <span>√</span>
+              </label>
+              <label>
+                  <input type="radio" name="radiorr" onclick="ones()" value="false">
+                  <span>×</span>
+              </label>
+          </li>
+      </ul>
+      <h3>简单题（每题20分，共20分）</h3>
+      <ul class="list-unstyled">
+          <li>
+              1、简述什么是模型以及模型的表达方式？
+          </li>
+          <li>
+              <textarea type="text" class="form-control" rows="8" id="test" onblur="last()"></textarea>
+          </li>
+      </ul>
+      <button class="btn btn-success" type="submit" onclick="getvalue()" value="获取">计算分数</button>
+  </div>
+<script>
+    function last() {
+        var tt = document.getElementById('test').value;
+        if(tt == '') {
+            alert('请填写简答题')
+        }else{
+            alert(tt)
+        }
+    }
+</script>
+</body>
+</html>
